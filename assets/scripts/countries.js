@@ -1,4 +1,4 @@
- export const countries = {
+  const countries = {
   'sr-RS': "Serbia",
   'tk-TM': "TurKmen",
   'tg-Tj': "Tajik",
