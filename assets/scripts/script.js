@@ -12,8 +12,8 @@ selecttag.forEach((tag, id) => {
       selected = "selected"
     }
     let countryAtCode = countries[country_code]
-    let options = `<option value=${country_code} ${selected}>${countryAtCode}</option>
-  `
+    let options = `<option value=${country_code} ${selected}>${countryAtCode}</option> 
+  ` //populating option tag
   tag.insertAdjacentHTML("beforeend", options)
   
   }
@@ -21,9 +21,15 @@ selecttag.forEach((tag, id) => {
 
 translationbtn.addEventListener("click", ()=>{
 let text = fromText.value
-let translatefrom = selecttag[0].value
-let translateto = selecttag[1].value
-console.log(translatefrom);
-console.log(translateto);
+let translatefrom = selecttag[0].value //getting from select tag
+let translateto = selecttag[1].value //getting to select tag value
+let apiurl = `https://api.mymemory.translated.net/get?q=${text}&langpair=${translatefrom}|${translateto}`;
+
+fetch(apiurl).then((res)=>{
+  res.json()
+}).then((data)=>{
+  console.log(data);
+})
+
 })
 
