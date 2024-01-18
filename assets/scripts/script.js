@@ -25,9 +25,9 @@ let translatefrom = selecttag[0].value //getting from select tag
 let translateto = selecttag[1].value //getting to select tag value
 let apiurl = `https://api.mymemory.translated.net/get?q=${text}&langpair=${translatefrom}|${translateto}`;
 
-fetch(apiurl).then((res)=>{
+fetch(apiurl).then(res=>
   res.json()
-}).then((data)=>{
+).then(data=>{
   console.log(data);
 })
 
