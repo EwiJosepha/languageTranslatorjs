@@ -1,4 +1,5 @@
 const selecttag = document.querySelectorAll("select");
+const audioicon = document.querySelectorAll(".row i");
 const fromText = document.querySelector(".from-text");
 const textto = document.querySelector(".to-text");
 const exchangeIcone = document.querySelector(".exchange");
@@ -21,8 +22,13 @@ selecttag.forEach((tag, id) => {
 })
 
 exchangeIcone.addEventListener('click', ()=>{ 
+  //exchanging text areas and select tags
   let temptextt = fromText.value
   fromText.value = textto.value
+  textto.value = temptextt
+  templang = selecttag[0].value
+  selecttag[0].value = selecttag[1].value
+  selecttag[1].value = templang
 })
 
 translationbtn.addEventListener("click", ()=>{
@@ -38,5 +44,27 @@ fetch(apiurl).then(res=>
   console.log(data);
 })
 
+})
+
+audioicon.forEach(icon =>{
+  icon.addEventListener('click', ({target})=>{
+if(target.classList.contains('fa-copy')){
+ if(target.id === "from"){
+  navigator.clipboard.writeText(fromText.value)
+ }else{
+  navigator.clipboard.writeText(textto.value)
+ }
+}else{
+  let utterance;
+  if(target.id === "from"){
+    utterance = new SpeechSynthesisUtterance(fromText.value)
+    utterance.lang = selecttag[0].value
+   }else{
+    utterance = new SpeechSynthesisUtterance(textto.value)}
+    utterance.lang = selecttag[1].value
+
+  speechSynthesis.speak(utterance)
+}
+  })
 })
 
