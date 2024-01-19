@@ -1,6 +1,7 @@
 const selecttag = document.querySelectorAll("select");
 const fromText = document.querySelector(".from-text");
-
+const textto = document.querySelector(".to-text");
+const exchangeIcone = document.querySelector(".exchange");
 const translationbtn = document.querySelector('button')
 selecttag.forEach((tag, id) => {
   for (const country_code in countries) {
@@ -19,6 +20,11 @@ selecttag.forEach((tag, id) => {
   }
 })
 
+exchangeIcone.addEventListener('click', ()=>{ 
+  let temptextt = fromText.value
+  fromText.value = textto.value
+})
+
 translationbtn.addEventListener("click", ()=>{
 let text = fromText.value
 let translatefrom = selecttag[0].value //getting from select tag
@@ -28,6 +34,7 @@ let apiurl = `https://api.mymemory.translated.net/get?q=${text}&langpair=${trans
 fetch(apiurl).then(res=>
   res.json()
 ).then(data=>{
+  textto.value = data.responseData.translatedText;
   console.log(data);
 })
 
