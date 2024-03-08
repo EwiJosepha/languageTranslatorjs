@@ -95,26 +95,26 @@ li {
 
 .container button {
   width: 100%;
-  padding: 14px;
+  padding: 15px;
   margin-top: 20px;
   border: none;
   outline: none;
   background-color: #5372f0;
   cursor: pointer;
-  color: #fff;
+  color: #ede8e8;
   font-size: 17px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .container4 {
   width: 100%;
-  padding: 14px;
+  padding: 15px;
   margin-top: 20px;
   border: none;
   outline: none;
   background-color: #5372f0;
   cursor: pointer;
-  color: #fff;
-  font-size: 17px;
+  color: #f2eded;
+  font-size: 19px;
   border-radius: 5px;
 }

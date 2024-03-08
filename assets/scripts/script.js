@@ -4,6 +4,7 @@ const fromText = document.querySelector(".from-text");
 const textto = document.querySelector(".to-text");
 const exchangeIcone = document.querySelector(".exchange");
 const translationbtn = document.querySelector('button')
+
 selecttag.forEach((tag, id) => {
   for (const country_code in countries) {
     //selecting english as language from and hindi as language to by default
@@ -17,7 +18,6 @@ selecttag.forEach((tag, id) => {
     let options = `<option value=${country_code} ${selected}>${countryAtCode}</option> 
   ` //populating option tag
   tag.insertAdjacentHTML("beforeend", options)
-  
   }
 })
 
